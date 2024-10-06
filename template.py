@@ -7,7 +7,7 @@ import logging
 logging.basicConfig(level=logging.INFO , format='[%(asctime)s:%(message)s])')
 
 # Creating package name
-package_name = 'CNN_Classifier'
+package_name = 'CNNClassifier'
 
 # List of file
 list_of_files = [
