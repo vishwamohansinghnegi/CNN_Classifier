@@ -12,8 +12,10 @@ from box import ConfigBox
 
 # using this '@ensure_annotations' decorator for every function
 @ensure_annotations
-def read_yaml():
-    pass
+def read_yaml(path_to_yaml:Path)->ConfigBox:
+    with open(path_to_yaml) as yaml_file:
+        content = yaml.safe_load(yaml_file)
+        return ConfigBox(content)    # using 'ConfigBox so that it consider 'content' as dictionary
 
 @ensure_annotations
 def save_json():
@@ -36,5 +38,8 @@ def get_size():
     pass
 
 @ensure_annotations
-def create_dir():
-    pass
+def create_dir(path_to_dir:list , verbose=True):
+    for path in path_to_dir:
+        os.makedirs(path , exist_ok=True)
+        if verbose:
+            logger.info(f'create directory at : {path}')

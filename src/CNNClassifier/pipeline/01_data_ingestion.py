@@ -3,6 +3,7 @@ from CNNClassifier.config.configuration import ConfigurationManager
 from CNNClassifier import logger
 
 logger.info(f'data ingestion started')
+
 config = ConfigurationManager()
 data_ingestion_config = config.get_data_ingestion_config()   # For getting configuration 
 
